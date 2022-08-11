@@ -27,3 +27,6 @@ var getDogs= function() {
         .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));}
+
+console.log(getHashtags);
+console.log(getDogs);
