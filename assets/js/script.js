@@ -1,6 +1,7 @@
 //personaliity API
 var dogType ="";
 var dogTypeParse="";
+var dogPicUrl = "";
 key=0;
 
 var getHashtags= function() {
@@ -50,18 +51,36 @@ var getDogs= function() {
           
           $.ajax(settings).done(function (data) {
             console.log(data);
-            var dogPicUrl = data.url;
+            if (dogPicUrl === "") {
+            dogPicUrl = data.url;
             console.log(dogPicUrl)
-            $("#facts-column").append('<img src="'+dogPicUrl+'" alt="'+dogTypeParse+' image"/>')
-            $("#facts-column").append('<p><strong>What was my baby bred for:</strong> '+bredFor)
-            $("#facts-column").append('<p><strong>What breed group do they belong to:</strong> '+breedGroup)
-            $("#facts-column").append('<p><strong>How long will my baby be with me:</strong> '+lifeSpan)
-            $("#facts-column").append('<p><strong>How fat will my baby get:</strong> '+avgWeight+' kg')
-            $("#facts-column").append('<p><strong>How tall will my baby get:</strong> '+avgHeight+' cm')
-            $("#facts-column").append('<p><strong>How would others decribe my baby:</strong> '+temperment)
+            $("#facts-column").append('<img src="'+dogPicUrl+'" id="dogPic" alt="'+dogTypeParse+' image"/>')
+            $("#facts-column").append('<p id="dogBredFor"><strong>What was my baby bred for:</strong> '+bredFor)
+            $("#facts-column").append('<p id="dogBreed"><strong>What breed group do they belong to:</strong> '+breedGroup)
+            $("#facts-column").append('<p id="lifeSpan"><strong>How long will my baby be with me:</strong> '+lifeSpan)
+            $("#facts-column").append('<p id="avgWeight><strong>How fat will my baby get:</strong> '+avgWeight+' kg')
+            $("#facts-column").append('<p id="avgHeight"><strong>How tall will my baby get:</strong> '+avgHeight+' cm')
+            $("#facts-column").append('<p id="dogTemperment"><strong>How would others decribe my baby:</strong> '+temperment)}
+              if(dogPicUrl != ""){
+                $("#dogPic").remove();
+                $("#dogBredFor").remove();
+                $("#dogBreed").remove();
+                $("#lifeSpan").remove();
+                $("#avgWeight").remove();
+                $("#avgHeight").remove();
+                $("#dogTemperment").remove();
+                dogPicUrl = data.url;
+                console.log(dogPicUrl)
+                $("#facts-column").append('<img src="'+dogPicUrl+'" id="dogPic" alt="'+dogTypeParse+' image"/>')
+                $("#facts-column").append('<p id="dogBredFor"><strong>What was my baby bred for:</strong> '+bredFor)
+                $("#facts-column").append('<p id="dogBreed"><strong>What breed group do they belong to:</strong> '+breedGroup)
+                $("#facts-column").append('<p id="lifeSpan"><strong>How long will my baby be with me:</strong> '+lifeSpan)
+                $("#facts-column").append('<p id="avgWeight><strong>How fat will my baby get:</strong> '+avgWeight+' kg')
+                $("#facts-column").append('<p id="avgHeight"><strong>How tall will my baby get:</strong> '+avgHeight+' cm')
+                $("#facts-column").append('<p id="dogTemperment"><strong>How would others decribe my baby:</strong> '+temperment)}})
           });
-      });
-}
+      };
+
 
     
 
