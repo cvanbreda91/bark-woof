@@ -30,6 +30,13 @@ var getDogs= function() {
       
       $.ajax(settings).done(function (data) {
         console.log(data);
+        var bredFor = data[0].bred_for;
+        var breedGroup = data[0].breed_group;
+        var avgHeight = data[0].height.metric;
+        var avgWeight = data[0].weight.metric;
+        var lifeSpan = data[0].life_span;
+        var temperment = data[0].temperament;
+        console.log (bredFor,breedGroup,avgHeight,avgWeight,lifeSpan,temperment)
         var imageId = data[0].reference_image_id;
         var settings = {
             "async": true,
@@ -46,6 +53,12 @@ var getDogs= function() {
             var dogPicUrl = data.url;
             console.log(dogPicUrl)
             $("#facts-column").append('<img src="'+dogPicUrl+'" alt="'+dogTypeParse+' image"/>')
+            $("#facts-column").append('<p><strong>What was my baby bred for:</strong> '+bredFor)
+            $("#facts-column").append('<p><strong>What breed group do they belong to:</strong> '+breedGroup)
+            $("#facts-column").append('<p><strong>How long will my baby be with me:</strong> '+lifeSpan)
+            $("#facts-column").append('<p><strong>How fat will my baby get:</strong> '+avgWeight+' kg')
+            $("#facts-column").append('<p><strong>How tall will my baby get:</strong> '+avgHeight+' cm')
+            $("#facts-column").append('<p><strong>How would others decribe my baby:</strong> '+temperment)
           });
       });
 }
