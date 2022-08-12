@@ -1,5 +1,8 @@
 //personaliity API
 var dogType ="";
+var dogTypeParse=dogType.replace(/\b[a-z]/g, function(dogType) {
+    return dogType.toUpperCase();
+});
 key=0;
 
 var getHashtags= function() {
@@ -25,7 +28,7 @@ var getDogs= function() {
         }
     };
     
-    fetch('https://dog-breeds2.p.rapidapi.com/dog_breeds/breed/'+dogType, options)
+    fetch('https://dog-breeds2.p.rapidapi.com/dog_breeds/breed/'+dogTypeParse, options)
         .then(response => response.json())
         .then(response => console.log(response))
         .catch(err => console.error(err));}
@@ -34,12 +37,14 @@ var getDogs= function() {
 
 $("#search-button").click(function(event) {
     dogType = $("#dog-type").val();
+    dogTypeParse = dogType.replace(/\b[a-z]/g, function(dogType) {
+        return dogType.toUpperCase();
+    });
     key=key+1;
-    console.log(dogType);
-    localStorage.setItem('dog'+key, JSON.stringify(dogType));
+    localStorage.setItem('dog'+key, JSON.stringify(dogTypeParse));
     getHashtags();
     getDogs();
 
-    $("#buttons").append('<button id="button'+key+'">'+dogType+'</button>')
+    $("#buttons").append('<button id="button'+key+'">'+dogTypeParse+'</button>')
     
 })
