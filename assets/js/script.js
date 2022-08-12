@@ -156,7 +156,6 @@ $("#copyToClipboard").click(function(event){
     let textToCopy = document.getElementById('hashtagText').innerText;
     if(navigator.clipboard) {
         navigator.clipboard.writeText(textToCopy).then(() => {
-            alert('Copied to clipboard')
         })
     } else {
         console.log('Browser Not compatible')
