@@ -2,21 +2,71 @@
 var dogType ="";
 var dogTypeParse="";
 var dogPicUrl = "";
+var hashtags ="";
 key=0;
 
 var getHashtags= function() {
-    const options = {
-        method: 'GET',
-        headers: {
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": 'https://hashtagy-generate-hashtags.p.rapidapi.com/v1/insta/tags?keyword='+dogType+'&include_tags_info=true',
+        "method": "GET",
+        "headers": {
             'X-RapidAPI-Key': 'ac049e0aacmsh4a22781a68935f2p12f181jsnbf8e06889ca5',
             'X-RapidAPI-Host': 'hashtagy-generate-hashtags.p.rapidapi.com'
         }
-    };
-    
-    fetch('https://hashtagy-generate-hashtags.p.rapidapi.com/v1/insta/tags?keyword='+dogType+'&include_tags_info=true', options)
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));}
+      }
+      $.ajax(settings).done(function (data) {
+        console.log(data);
+        var hashtagZero = data.data.hashtags[0].hashtag;
+        var hashtagOne = data.data.hashtags[1].hashtag;
+        var hashtagTwo = data.data.hashtags[2].hashtag;
+        var hashtagThree = data.data.hashtags[3].hashtag;
+        var hashtagFour = data.data.hashtags[4].hashtag;
+        var hashtagFive = data.data.hashtags[5].hashtag;
+        var hashtagSix = data.data.hashtags[6].hashtag;
+        var hashtagSeven = data.data.hashtags[7].hashtag;
+        var hashtagEight = data.data.hashtags[8].hashtag;
+        var hashtagNine = data.data.hashtags[9].hashtag;
+
+        if (hashtags === ""){
+        hashtags ="hashtags";
+        $("#hashtagText").append('<p id="hashtagZero">#'+hashtagZero+'</p>');
+        $("#hashtagText").append('<p id="hashtagOne">#'+hashtagOne+'</p>');
+        $("#hashtagText").append('<p id="hashtagTwo">#'+hashtagTwo+'</p>');
+        $("#hashtagText").append('<p id="hashtagThree">#'+hashtagThree+'</p>');
+        $("#hashtagText").append('<p id="hashtagFour">#'+hashtagFour+'</p>');
+        $("#hashtagText").append('<p id="hashtagFive">#'+hashtagFive+'</p>');
+        $("#hashtagText").append('<p id="hashtagSix">#'+hashtagSix+'</p>');
+        $("#hashtagText").append('<p id="hashtagSeven">#'+hashtagSeven+'</p>');
+        $("#hashtagText").append('<p id="hashtagEight">#'+hashtagEight+'</p>');
+        $("#hashtagText").append('<p id="hashtagNine">#'+hashtagNine+'</p>');}
+        if (hashtags === "hashtags"){
+        $("#hashtagZero").remove();
+        $("#hashtagOne").remove();
+        $("#hashtagTwo").remove();
+        $("#hashtagThree").remove();
+        $("#hashtagFour").remove();
+        $("#hashtagFive").remove();
+        $("#hashtagSix").remove();
+        $("#hashtagSeven").remove();
+        $("#hashtagEight").remove();
+        $("#hashtagNine").remove();
+        $("#hashtagText").append('<p id="hashtagZero">#'+hashtagZero+'</p>');
+        $("#hashtagText").append('<p id="hashtagOne">#'+hashtagOne+'</p>');
+        $("#hashtagText").append('<p id="hashtagTwo">#'+hashtagTwo+'</p>');
+        $("#hashtagText").append('<p id="hashtagThree">#'+hashtagThree+'</p>');
+        $("#hashtagText").append('<p id="hashtagFour">#'+hashtagFour+'</p>');
+        $("#hashtagText").append('<p id="hashtagFive">#'+hashtagFive+'</p>');
+        $("#hashtagText").append('<p id="hashtagSix">#'+hashtagSix+'</p>');
+        $("#hashtagText").append('<p id="hashtagSeven">#'+hashtagSeven+'</p>');
+        $("#hashtagText").append('<p id="hashtagEight">#'+hashtagEight+'</p>');
+        $("#hashtagText").append('<p id="hashtagNine">#'+hashtagNine+'</p>');
+
+        }
+
+      })
+}
 
 var getDogs= function() {
     var settings = {
@@ -96,4 +146,20 @@ $("#search-button").click(function(event) {
 
     $("#buttons").append('<button id="button'+key+'">'+dogTypeParse+'</button>')
     
+})
+
+
+
+// let copyToClipboardButton = document.getElementById('copyToClipboard');
+
+$("#copyToClipboard").click(function(event){
+    let textToCopy = document.getElementById('hashtagText').innerText;
+    if(navigator.clipboard) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert('Copied to clipboard')
+        })
+    } else {
+        console.log('Browser Not compatible')
+    }
+
 })
