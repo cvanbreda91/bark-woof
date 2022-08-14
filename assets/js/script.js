@@ -41,6 +41,7 @@ var getHashtags= function() {
         $("#hashtagText").append('<p id="hashtagSeven">#'+hashtagSeven+'</p>');
         $("#hashtagText").append('<p id="hashtagEight">#'+hashtagEight+'</p>');
         $("#hashtagText").append('<p id="hashtagNine">#'+hashtagNine+'</p>');}
+        
         if (hashtags === "hashtags"){
         $("#hashtagZero").remove();
         $("#hashtagOne").remove();
@@ -64,6 +65,71 @@ var getHashtags= function() {
         $("#hashtagText").append('<p id="hashtagNine">#'+hashtagNine+'</p>');
 
         }
+
+
+var chart = JSC.chart('chartDiv', {
+  debug: true,
+  title: { position: 'center', label_text: 'Top 5 Hashtag Total Posts' },
+  defaultSeries: {
+    type: 'pieDonut',
+    angle_orientation: 220,
+    shape_padding: 0.2
+  },
+  defaultPoint: {
+    //label_text:'<b>%name</b>',
+    label_text:
+      '<span style="width:90px">%name</span><span style="width:60px">{%yValue/1000000:n1}M</span>',
+    tooltip:
+      '<b>%name</b><br/>Total Posts: <b>{%yValue/1000000:n1}M</b> {%percentOfTotal:n1}% <br/>Avg Likes: <b>%zValue</b><hr>Avg. Posts per Hour: <b>%postPerHour</b>'
+  },
+  legend: {
+    visible: false,
+    header: 'Top 5 Hashtags Total Posts',
+    template: '%value {%zValue:n0}yrs %icon %name',
+    defaultEntry_value: '{%yValue/1000000:n1}M'
+  },
+
+  zAxis_formatString: 'n1',
+
+  series: [
+    {
+      name: 'Top Hashtag Posts',
+      points: [
+        {
+          name: data.data.hashtags[0].hashtag,
+          y: data.data.hashtags[0].total_posts,
+          z: data.data.hashtags[0].average_likes,
+          attributes: { postPerHour: data.data.hashtags[0].posts_per_hour }
+        },
+        {
+          name: data.data.hashtags[1].hashtag,
+          y: data.data.hashtags[1].total_posts,
+          z: data.data.hashtags[1].average_likes,
+          attributes: { postPerHour: data.data.hashtags[1].posts_per_hour }
+        },
+        {
+          name: data.data.hashtags[2].hashtag,
+          y: data.data.hashtags[2].total_posts,
+          z: data.data.hashtags[2].average_likes,
+          attributes: { postPerHour: data.data.hashtags[2].posts_per_hour }
+        },
+        {
+          name: data.data.hashtags[3].hashtag,
+          y: data.data.hashtags[3].total_posts,
+          z: data.data.hashtags[3].average_likes,
+          attributes: { postPerHour: data.data.hashtags[3].posts_per_hour }
+        },
+        {
+          name: data.data.hashtags[4].hashtag,
+          y: data.data.hashtags[4].total_posts,
+          z: data.data.hashtags[4].average_likes,
+          attributes: { postPerHour: data.data.hashtags[4].posts_per_hour }
+        },
+      ]}
+    
+  ]
+});
+
 
       })
 }
@@ -148,10 +214,6 @@ $("#search-button").click(function(event) {
     
 })
 
-
-
-// let copyToClipboardButton = document.getElementById('copyToClipboard');
-
 $("#copyToClipboard").click(function(event){
     let textToCopy = document.getElementById('hashtagText').innerText;
     if(navigator.clipboard) {
@@ -162,3 +224,6 @@ $("#copyToClipboard").click(function(event){
     }
 
 })
+
+
+
