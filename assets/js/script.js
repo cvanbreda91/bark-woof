@@ -1,4 +1,3 @@
-//personaliity API
 var dogType ="";
 var dogTypeParse="";
 var dogPicUrl = "";
@@ -31,16 +30,10 @@ var getHashtags= function() {
 
         if (hashtags === ""){
         hashtags ="hashtags";
-        $("#hashtagText").append('<p id="hashtagZero">#'+hashtagZero+'</p>');
-        $("#hashtagText").append('<p id="hashtagOne">#'+hashtagOne+'</p>');
-        $("#hashtagText").append('<p id="hashtagTwo">#'+hashtagTwo+'</p>');
-        $("#hashtagText").append('<p id="hashtagThree">#'+hashtagThree+'</p>');
-        $("#hashtagText").append('<p id="hashtagFour">#'+hashtagFour+'</p>');
-        $("#hashtagText").append('<p id="hashtagFive">#'+hashtagFive+'</p>');
-        $("#hashtagText").append('<p id="hashtagSix">#'+hashtagSix+'</p>');
-        $("#hashtagText").append('<p id="hashtagSeven">#'+hashtagSeven+'</p>');
-        $("#hashtagText").append('<p id="hashtagEight">#'+hashtagEight+'</p>');
-        $("#hashtagText").append('<p id="hashtagNine">#'+hashtagNine+'</p>');}
+        $("#hashtagText").append('<tr> <td id="hashtagZero">#'+hashtagZero+'</td><td id="hashtagOne">#'+hashtagOne+'</td><td id="hashtagTwo">#'+hashtagTwo+'</td><td id="hashtagThree">#'+hashtagThree+'</td></tr>');
+        $("#hashtagText").append('<tr> <td id="hashtagFour">#'+hashtagFour+'</td><td id="hashtagFive">#'+hashtagFive+'</td><td id="hashtagSix">#'+hashtagSix+'</td> <td id=extraOne></td></tr>')
+        $("#hashtagText").append('<tr> <td id="hashtagSeven">#'+hashtagSeven+'</td><td id="hashtagEight">#'+hashtagEight+'</td><td id="hashtagNine">#'+hashtagNine+'</td><td id=extraTwo></td></tr>')}
+      
         
         if (hashtags === "hashtags"){
         $("#hashtagZero").remove();
@@ -53,18 +46,13 @@ var getHashtags= function() {
         $("#hashtagSeven").remove();
         $("#hashtagEight").remove();
         $("#hashtagNine").remove();
-        $("#hashtagText").append('<p id="hashtagZero">#'+hashtagZero+'</p>');
-        $("#hashtagText").append('<p id="hashtagOne">#'+hashtagOne+'</p>');
-        $("#hashtagText").append('<p id="hashtagTwo">#'+hashtagTwo+'</p>');
-        $("#hashtagText").append('<p id="hashtagThree">#'+hashtagThree+'</p>');
-        $("#hashtagText").append('<p id="hashtagFour">#'+hashtagFour+'</p>');
-        $("#hashtagText").append('<p id="hashtagFive">#'+hashtagFive+'</p>');
-        $("#hashtagText").append('<p id="hashtagSix">#'+hashtagSix+'</p>');
-        $("#hashtagText").append('<p id="hashtagSeven">#'+hashtagSeven+'</p>');
-        $("#hashtagText").append('<p id="hashtagEight">#'+hashtagEight+'</p>');
-        $("#hashtagText").append('<p id="hashtagNine">#'+hashtagNine+'</p>');
+        $("#extraOne").remove();
+        $("#extraTwo").remove();
+        $("#hashtagText").append('<tr> <td id="hashtagZero">#'+hashtagZero+'</td><td id="hashtagOne">#'+hashtagOne+'</td><td id="hashtagTwo">#'+hashtagTwo+'</td><td id="hashtagThree">#'+hashtagThree+'</td></tr>');
+        $("#hashtagText").append('<tr> <td id="hashtagFour">#'+hashtagFour+'</td><td id="hashtagFive">#'+hashtagFive+'</td><td id="hashtagSix">#'+hashtagSix+'</td><td id=extraOne></td></tr>')
+        $("#hashtagText").append('<tr> <td id="hashtagSeven">#'+hashtagSeven+'</td><td id="hashtagEight">#'+hashtagEight+'</td><td id="hashtagNine">#'+hashtagNine+'</td><td id=extraTwo></td></tr>')}
 
-        }
+        
 
 
 var chart = JSC.chart('chartDiv', {
@@ -76,9 +64,8 @@ var chart = JSC.chart('chartDiv', {
     shape_padding: 0.2
   },
   defaultPoint: {
-    //label_text:'<b>%name</b>',
     label_text:
-      '<span style="width:90px">%name</span><span style="width:60px">{%yValue/1000000:n1}M</span>',
+      '<span style="width:60px">%name</span>',
     tooltip:
       '<b>%name</b><br/>Total Posts: <b>{%yValue/1000000:n1}M</b> {%percentOfTotal:n1}% <br/>Avg Likes: <b>%zValue</b><hr>Avg. Posts per Hour: <b>%postPerHour</b>'
   },
@@ -224,6 +211,49 @@ $("#copyToClipboard").click(function(event){
     }
 
 })
+
+
+
+$(document).on('click', '#button1', function() {
+  dogType = JSON.parse(localStorage.getItem('dog1'));
+  dogTypeParse = JSON.parse(localStorage.getItem('dog1'));
+  getHashtags();
+  getDogs();
+});
+
+$(document).on('click', '#button2', function() {
+  dogType = JSON.parse(localStorage.getItem('dog2'));
+  dogTypeParse = JSON.parse(localStorage.getItem('dog2'));
+  getHashtags();
+  getDogs();
+});
+
+$(document).on('click', '#button3', function() {
+  dogType = JSON.parse(localStorage.getItem('dog3'));
+  dogTypeParse = JSON.parse(localStorage.getItem('dog3'));
+  getHashtags();
+  getDogs();
+});
+
+$(document).on('click', '#button4', function() {
+  dogType = JSON.parse(localStorage.getItem('dog4'));
+  dogTypeParse = JSON.parse(localStorage.getItem('dog4'));
+  getHashtags();
+  getDogs();
+});
+$(document).on('click', '#button5', function() {
+  dogType = JSON.parse(localStorage.getItem('dog5'));
+  dogTypeParse = JSON.parse(localStorage.getItem('dog5'));
+  getHashtags();
+  getDogs();
+});
+
+$(document).on('click', '#button6', function() {
+  dogType = JSON.parse(localStorage.getItem('dog6'));
+  dogTypeParse = JSON.parse(localStorage.getItem('dog6'));
+  getHashtags();
+  getDogs();
+});
 
 
 
