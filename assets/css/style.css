@@ -76,3 +76,7 @@ p {
 table, tr, td{
     border:none;
    }
+
+#copyToClipboard {
+    visibility: hidden;
+}

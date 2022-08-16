@@ -46,7 +46,6 @@ var getHashtags = function () {
     $("#hashtagNine").remove();
     $("#extraOne").remove();
     $("#extraTwo").remove();
-    $("#copyToClipboard").remove();
 
 
       $("#hashtagText").append(
@@ -78,9 +77,6 @@ var getHashtags = function () {
           hashtagNine +
           "</td><td id=extraTwo></td></tr>"
       );
-      $("#hashtagText").append('<button class="fas fa-copy button is-success is-large" id="copyToClipboard"></button>')
-      $("#copyToClipboard").css("margin","30px");
-    
 
     var chart = JSC.chart("chartDiv", {
       debug: true,
@@ -263,6 +259,12 @@ $("#search-button").click(function (event) {
       dogTypeParse +
       "</button>"
   );
+ 
+  $("#copyToClipboard").css("visibility","visible");
+  $("#hashtagText").css("margin-bottom","0px");
+
+  $("#copyToClipboard").css("margin-bottom","25px");
+  $("#copyToClipboard").css("margin-top","0px");
 });
 
 $("#copyToClipboard").click(function (event) {
