@@ -21,6 +21,14 @@ body {
 header {
     font-family: 'Pacifico', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 50px;
+    position: sticky;
+}
+
+#buttons {
+    background-color: pink;
+    height: fit-content;
+    margin: 20px;
+    border-radius: 15px;
 }
 
 button{
@@ -44,12 +52,15 @@ input {
 
 #dogPic {
   border-radius: 15%;
-  border-color: rgba(137, 43, 226, 0.608);
+  border-color: rgb(229, 117, 206);
   border-style: groove;
-border-width: 10px;}
+  border-width: 10px;
+  padding: 0px;
+}
+  
 
 p {
-    background-color: rgba(137, 43, 226, 0.733);
+    background-color:  rgb(229, 117, 206);
     color: black;
     padding: 10px;
 }
