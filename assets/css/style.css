@@ -10,3 +10,32 @@
 .column {
     padding: 50px;
 }
+
+/* .background {
+    background-image: url("../img/bg-img.jpg");
+    background-position: 80%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    opacity: 0.5;
+} */
+
+body {
+    height: 100%;
+    min-height: 1000px;
+    background-image: url("../img/bg-img.png");
+    z-index: 9999;
+  }
+
+header {
+    font-family: 'Pacifico', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 50px;
+}
+
+button{
+    max-width: 100%;
+    min-width: 100%;
+
+}
+

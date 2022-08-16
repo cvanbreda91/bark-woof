@@ -1,41 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="website icon" href="https://media.tenor.com/images/178c8bcabd253de4f0fe72bd504d6ee9/tenor.gif"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="website icon"
+      href="https://media.tenor.com/images/178c8bcabd253de4f0fe72bd504d6ee9/tenor.gif"
+    />
     <title>Bark Woof</title>
-</head>
-<body>
-<header>
-    <h1 class="title is-1">Title</h1>
-    <h3 class="subtitle is-3">Subtitle</h3>
-</header>
-<main>
-    <div class="columns">
+  </head>
+  <body class="background">
+    <header>
+      <h1 class="title is-1">Bark-Woof</h1>
+      <h3 class="subtitle is-3">Make your fur friend a celebrity</h3>
+    </header>
+    <main>
+      <div class="columns">
         <div class="column is-one-fifth" id="buttons">
-            <h3>Search Dog Type</h3>
-            <input type="text" id="dog-type" placeholder="ex. Beagle"><br>
-            <button id="search-button">Search</button>
+          <h3>Search Dog Type</h3>
+          <input type="text" id="dog-type" placeholder="ex. Beagle" /><br />
+          <button class="button is-primary is-large" id="search-button">
+            Search
+          </button>
         </div>
-        <div class="column is-one-quarter" id="facts-column">
-        </div>
+        <div class="column is-one-quarter" id="facts-column"></div>
         <div class="column" id="hashtag-column">
-            <h3>Top 10 Hashtags</h3>
-            <table class="table is-narrow" id="hashtagText">
-            </table>
-            <button class ="fas fa-copy"id="copyToClipboard"></button>
-            <div id="chartDiv" style="width: 100%; height: 400px;">
-        </div>
+          <h3>Top 10 Hashtags</h3>
+          <table class="table is-narrow" id="hashtagText"></table>
+          <button
+            class="fas fa-copy button is-warning is-large"
+            id="copyToClipboard"
+          ></button>
+          <div id="chartDiv" style="width: 100%; height: 400px"></div>
         </div>
       </div>
-</main>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://code.jscharting.com/latest/jscharting.js"></script>
-<script src="./assets/js/script.js"></script>
-</body>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
