@@ -26,6 +26,30 @@ header {
 button{
     max-width: 100%;
     min-width: 100%;
+    margin-top: 20px;
 
 }
 
+h3 {
+    font-size: 35px;
+}
+
+input {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 50px;
+    font-size: 25px;
+
+}
+
+#dogPic {
+  border-radius: 15%;
+  border-color: rgba(137, 43, 226, 0.608);
+  border-style: groove;
+border-width: 10px;}
+
+p {
+    background-color: rgba(137, 43, 226, 0.733);
+    color: black;
+    padding: 10px;
+}

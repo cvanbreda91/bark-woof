@@ -221,32 +221,7 @@ var getDogs = function () {
             dogTypeParse +
             ' image"/>'
         );
-        $("#facts-column").append(
-          '<p id="dogBredFor"><strong>What was my baby bred for:</strong> ' +
-            bredFor
-        );
-        $("#facts-column").append(
-          '<p id="dogBreed"><strong>What breed group do they belong to:</strong> ' +
-            breedGroup
-        );
-        $("#facts-column").append(
-          '<p id="lifeSpan"><strong>How long will my baby be with me:</strong> ' +
-            lifeSpan
-        );
-        $("#facts-column").append(
-          '<p id="avgWeight><strong>How fat will my baby get:</strong> ' +
-            avgWeight +
-            " kg"
-        );
-        $("#facts-column").append(
-          '<p id="avgHeight"><strong>How tall will my baby get:</strong> ' +
-            avgHeight +
-            " cm"
-        );
-        $("#facts-column").append(
-          '<p id="dogTemperment"><strong>How would others decribe my baby:</strong> ' +
-            temperment
-        );
+
       }
       if (dogPicUrl != "") {
         $("#dogPic").remove();
@@ -267,29 +242,29 @@ var getDogs = function () {
         );
         $("#facts-column").append(
           '<p id="dogBredFor"><strong>What was my baby bred for:</strong> ' +
-            bredFor
+            bredFor+'</p>'
         );
         $("#facts-column").append(
           '<p id="dogBreed"><strong>What breed group do they belong to:</strong> ' +
-            breedGroup
+            breedGroup+'</p>'
         );
         $("#facts-column").append(
           '<p id="lifeSpan"><strong>How long will my baby be with me:</strong> ' +
-            lifeSpan
+            lifeSpan+'</p>'
         );
         $("#facts-column").append(
-          '<p id="avgWeight><strong>How fat will my baby get:</strong> ' +
+          '<p id="avgWeight"><strong>How fat will my baby get:</strong> ' +
             avgWeight +
-            " kg"
+            ' kg</p>'
         );
         $("#facts-column").append(
           '<p id="avgHeight"><strong>How tall will my baby get:</strong> ' +
             avgHeight +
-            " cm"
+            ' cm</p>'
         );
         $("#facts-column").append(
           '<p id="dogTemperment"><strong>How would others decribe my baby:</strong> ' +
-            temperment
+            temperment+'</p>'
         );
       }
     });
