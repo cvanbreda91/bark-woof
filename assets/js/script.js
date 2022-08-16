@@ -34,9 +34,21 @@ var getHashtags = function () {
     $("#hashtag-column").prepend ('<h3 id="topTen">Top 10 Hashtags</h3>');
     $("#hashtag-column").css("background-color","hsl(171, 100%, 41%)");
     $("#chartDiv").css("background-color","hsl(171, 50%, 41%)");
+    $("#hashtagZero").remove();
+    $("#hashtagOne").remove();
+    $("#hashtagTwo").remove();
+    $("#hashtagThree").remove();
+    $("#hashtagFour").remove();
+    $("#hashtagFive").remove();
+    $("#hashtagSix").remove();
+    $("#hashtagSeven").remove();
+    $("#hashtagEight").remove();
+    $("#hashtagNine").remove();
+    $("#extraOne").remove();
+    $("#extraTwo").remove();
+    $("#copyToClipboard").remove();
 
-    if (hashtags === "") {
-      hashtags = "hashtags";
+
       $("#hashtagText").append(
         '<tr> <td id="hashtagZero">#' +
           hashtagZero +
@@ -66,56 +78,9 @@ var getHashtags = function () {
           hashtagNine +
           "</td><td id=extraTwo></td></tr>"
       );
-    }
-
-    if (hashtags === "hashtags") {
-      $("#hashtagZero").remove();
-      $("#hashtagOne").remove();
-      $("#hashtagTwo").remove();
-      $("#hashtagThree").remove();
-      $("#hashtagFour").remove();
-      $("#hashtagFive").remove();
-      $("#hashtagSix").remove();
-      $("#hashtagSeven").remove();
-      $("#hashtagEight").remove();
-      $("#hashtagNine").remove();
-      $("#extraOne").remove();
-      $("#extraTwo").remove();
-      $("#copyToClipboard").remove();
-  
-      $("#hashtagText").append(
-        '<tr> <td id="hashtagZero">#' +
-          hashtagZero +
-          '</td><td id="hashtagOne">#' +
-          hashtagOne +
-          '</td><td id="hashtagTwo">#' +
-          hashtagTwo +
-          '</td><td id="hashtagThree">#' +
-          hashtagThree +
-          "</td></tr>"
-      );
-      $("#hashtagText").append(
-        '<tr> <td id="hashtagFour">#' +
-          hashtagFour +
-          '</td><td id="hashtagFive">#' +
-          hashtagFive +
-          '</td><td id="hashtagSix">#' +
-          hashtagSix +
-          "</td><td id=extraOne></td></tr>"
-      );
-      $("#hashtagText").append(
-        '<tr> <td id="hashtagSeven">#' +
-          hashtagSeven +
-          '</td><td id="hashtagEight">#' +
-          hashtagEight +
-          '</td><td id="hashtagNine">#' +
-          hashtagNine +
-          "</td><td id=extraTwo></td></tr>"
-      );
-
       $("#hashtagText").append('<button class="fas fa-copy button is-success is-large" id="copyToClipboard"></button>')
       $("#copyToClipboard").css("margin","30px");
-    }
+    
 
     var chart = JSC.chart("chartDiv", {
       debug: true,
