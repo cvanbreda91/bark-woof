@@ -30,6 +30,10 @@ var getHashtags = function () {
     var hashtagSeven = data.data.hashtags[7].hashtag;
     var hashtagEight = data.data.hashtags[8].hashtag;
     var hashtagNine = data.data.hashtags[9].hashtag;
+    $("#topTen").remove();
+    $("#hashtag-column").prepend ('<h3 id="topTen">Top 10 Hashtags</h3>');
+    $("#hashtag-column").css("background-color","hsl(171, 100%, 41%)");
+    $("#chartDiv").css("background-color","hsl(171, 50%, 41%)");
 
     if (hashtags === "") {
       hashtags = "hashtags";
@@ -77,6 +81,8 @@ var getHashtags = function () {
       $("#hashtagNine").remove();
       $("#extraOne").remove();
       $("#extraTwo").remove();
+      $("#copyToClipboard").remove();
+  
       $("#hashtagText").append(
         '<tr> <td id="hashtagZero">#' +
           hashtagZero +
@@ -106,11 +112,14 @@ var getHashtags = function () {
           hashtagNine +
           "</td><td id=extraTwo></td></tr>"
       );
+
+      $("#hashtagText").append('<button class="fas fa-copy button is-success is-large" id="copyToClipboard"></button>')
+      $("#copyToClipboard").css("margin","30px");
     }
 
     var chart = JSC.chart("chartDiv", {
       debug: true,
-      title: { position: "center", label_text: "Top 5 Hashtag Total Posts" },
+      title: { position: "center", label_text: "Top 5 Hashtag Stats"},
       defaultSeries: {
         type: "pieDonut",
         angle_orientation: 220,
@@ -211,6 +220,7 @@ var getDogs = function () {
 
     $.ajax(settings).done(function (data) {
       console.log(data);
+      $("#facts-column").css("background-color","rgb(123, 201, 220)");
       if (dogPicUrl === "") {
         dogPicUrl = data.url;
         console.log(dogPicUrl);
