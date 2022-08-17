@@ -21,7 +21,32 @@ var getHashtags = function () {
       "X-RapidAPI-Host": "hashtagy-generate-hashtags.p.rapidapi.com",
     },
   };
-  $.ajax(settings).done(function (data) {
+  $.ajax(settings)
+  .catch(function(error) {
+    
+    $("#topTen").remove();
+
+    $("#hashtag-column").prepend ('<h3 id="topTen">Top 10 Hashtags</h3>');
+    $("#hashtag-column").css("background-color","hsl(171, 100%, 41%)");
+    $("#hashtagZero").remove();
+    $("#hashtagOne").remove();
+    $("#hashtagTwo").remove();
+    $("#hashtagThree").remove();
+    $("#hashtagFour").remove();
+    $("#hashtagFive").remove();
+    $("#hashtagSix").remove();
+    $("#hashtagSeven").remove();
+    $("#hashtagEight").remove();
+    $("#hashtagNine").remove();
+    $("#extraOne").remove();
+    $("#extraTwo").remove();
+    $("#hashtagColumns").remove();
+
+    $("#hashtagText").append(
+        '<div id ="hashtagColumns" class="columns"><div class="column"> <div id="hashtagZero">No Hashtags To Display</div></div></div>'
+      );
+    
+      }).done(function (data) {
     var hashtagZero = data.data.hashtags[0].hashtag;
     var hashtagOne = data.data.hashtags[1].hashtag;
     var hashtagTwo = data.data.hashtags[2].hashtag;
@@ -260,6 +285,20 @@ var getDogs = function () {
         temperment+'</p>'
     );
   });
+  }).catch(function(error) {
+    $("#sorryImg").remove();
+    $("#dogPic").remove();
+    $("#dogBredFor").remove();
+    $("#dogBreed").remove();
+    $("#lifeSpan").remove();
+    $("#avgWeight").remove();
+    $("#avgHeight").remove();
+    $("#dogTemperment").remove();
+    $("#facts-column").append('<img id="sorryImg" src="./assets/img/Sorry.png"/>'
+    );
+    $("#facts-column").append(
+      '<p id="dogBredFor"><strong>Sorry! We have no dog facts for you at this time</strong></p>'
+    );
   });
 };
 
