@@ -17,7 +17,7 @@ A website that allows the user to search a breed of dog which returns facts abou
 https://cvanbreda91.github.io/bark-woof/
 
 ## Contribution
-Made with ❤️ by Courtney
+Made with ❤️ by Courtney, Gabriela, Cindy, Andy
 
 ## Features
 - jQuery
