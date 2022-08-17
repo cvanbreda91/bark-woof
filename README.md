@@ -23,7 +23,7 @@ Made with ❤️ by Courtney, Gabriela, Cindy, Andy
 - jQuery
 - Bulma
 - Chart.JS
-- fontAwesome
+- Google Fonts
 - 3 server side APIs
 - Query Paramaters
 - save to localStorage
