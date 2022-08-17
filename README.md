@@ -13,8 +13,8 @@ A website that allows the user to search a breed of dog which returns facts abou
 - CSS updates - Andy
 - Presentation
 - - Elevator Pitch - Gabriela
-- - Concept - Courtney
+- - Concept - Cindy 
 - - Process - Andy
-- - Demo - Cindy
+- - Demo - Courtney
 - - Future improvements - Courtney
 
