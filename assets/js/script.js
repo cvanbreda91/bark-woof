@@ -49,34 +49,46 @@ var getHashtags = function () {
 
 
       $("#hashtagText").append(
-        '<tr> <td id="hashtagZero">#' +
+        '<div class="columns"><div class="column"> <div id="hashtagZero">#' +
           hashtagZero +
-          '</td><td id="hashtagOne">#' +
+          '</div><div id="hashtagOne">#' +
           hashtagOne +
-          '</td><td id="hashtagTwo">#' +
+          '</div><div id="hashtagTwo">#' +
           hashtagTwo +
-          '</td><td id="hashtagThree">#' +
+          '</div><div id="hashtagThree">#' +
           hashtagThree +
-          "</td></tr>"
-      );
-      $("#hashtagText").append(
-        '<tr> <td id="hashtagFour">#' +
+          '</div></div><div class="column"> <div id="hashtagFour">#' +
           hashtagFour +
-          '</td><td id="hashtagFive">#' +
+          '</div><div id="hashtagFive">#' +
           hashtagFive +
-          '</td><td id="hashtagSix">#' +
+          '</div><div id="hashtagSix">#' +
           hashtagSix +
-          "</td> <td id=extraOne></td></tr>"
-      );
-      $("#hashtagText").append(
-        '<tr> <td id="hashtagSeven">#' +
+          '</div><div id=extraOne></div></div><div class="column"> <div id="hashtagSeven">#' +
           hashtagSeven +
-          '</td><td id="hashtagEight">#' +
+          '</div><div id="hashtagEight">#' +
           hashtagEight +
-          '</td><td id="hashtagNine">#' +
+          '</div><div id="hashtagNine">#' +
           hashtagNine +
-          "</td><td id=extraTwo></td></tr>"
+          '</div><div id=extraTwo></div></div></div>'
       );
+      // $("#hashtagText").append(
+      //   '<div class="columns"><div class="column"> <div id="hashtagFour">#' +
+      //     hashtagFour +
+      //     '</div><div id="hashtagFive">#' +
+      //     hashtagFive +
+      //     '</div><div id="hashtagSix">#' +
+      //     hashtagSix +
+      //     "</div> <div id=extraOne></div></div>"
+      // );
+      // $("#hashtagText").append(
+      //   '<div class="column"> <div id="hashtagSeven">#' +
+      //     hashtagSeven +
+      //     '</div><div id="hashtagEight">#' +
+      //     hashtagEight +
+      //     '</div><div id="hashtagNine">#' +
+      //     hashtagNine +
+      //     "</div><div id=extraTwo></div></div></div>"
+      // );
 
     var chart = JSC.chart("chartDiv", {
       debug: true,
