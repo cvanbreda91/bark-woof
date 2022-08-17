@@ -43,7 +43,7 @@ var getHashtags = function () {
     $("#hashtagColumns").remove();
 
     $("#hashtagText").append(
-        '<div id ="hashtagColumns" class="columns"><div class="column"> <div id="hashtagZero">No Hashtags To Display</div></div></div>'
+        '<div id ="hashtagColumns" class="columns is-gapless"><div class="column"> <div id="hashtagZero">No Hashtags To Display</div></div></div>'
       );
     
       }).done(function (data) {
@@ -248,6 +248,7 @@ var getDogs = function () {
       );
     
   }).catch(function(error) {
+    $("#facts-column").css("background-color","rgb(123, 201, 220)")
     $("#sorryImg").remove();
     $("#dogPic").remove();
     $("#dogBredFor").remove();

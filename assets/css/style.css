@@ -55,6 +55,14 @@ input {
     border-radius: 15px;
     max-height: fit-content;
 }
+
+#facts-column{
+    margin: 20px;
+    border-radius: 15px;
+    max-height: fit-content;
+}
+
+
 p {
     padding-top: 5px;
 }
@@ -81,7 +89,12 @@ table, tr, td{
     visibility: hidden;
     max-width: 30px;
 }
-
+#sorryImg {
+    border-style: solid;
+    border-color: rgb(218, 218, 249);
+    border-width: 20px;
+    border-radius: 15px;
+}
 
 /* Tooltip container */
 .tooltip {
