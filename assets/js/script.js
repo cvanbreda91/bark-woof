@@ -71,24 +71,6 @@ var getHashtags = function () {
           hashtagNine +
           '</div><div id=extraTwo></div></div></div>'
       );
-      // $("#hashtagText").append(
-      //   '<div class="columns"><div class="column"> <div id="hashtagFour">#' +
-      //     hashtagFour +
-      //     '</div><div id="hashtagFive">#' +
-      //     hashtagFive +
-      //     '</div><div id="hashtagSix">#' +
-      //     hashtagSix +
-      //     "</div> <div id=extraOne></div></div>"
-      // );
-      // $("#hashtagText").append(
-      //   '<div class="column"> <div id="hashtagSeven">#' +
-      //     hashtagSeven +
-      //     '</div><div id="hashtagEight">#' +
-      //     hashtagEight +
-      //     '</div><div id="hashtagNine">#' +
-      //     hashtagNine +
-      //     "</div><div id=extraTwo></div></div></div>"
-      // );
 
     var chart = JSC.chart("chartDiv", {
       debug: true,
