@@ -46,10 +46,11 @@ var getHashtags = function () {
     $("#hashtagNine").remove();
     $("#extraOne").remove();
     $("#extraTwo").remove();
+    $("#hashtagColumns").remove();
 
 
       $("#hashtagText").append(
-        '<div class="columns"><div class="column"> <div id="hashtagZero">#' +
+        '<div id ="hashtagColumns" class="columns is-variable is-1"><div class="column"> <div id="hashtagZero">#' +
           hashtagZero +
           '</div><div id="hashtagOne">#' +
           hashtagOne +

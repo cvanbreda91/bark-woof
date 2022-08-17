@@ -79,4 +79,12 @@ table, tr, td{
 
 #copyToClipboard {
     visibility: hidden;
+    max-width: 30px;
 }
+
+#hashtag-column {
+    max-width: min-content;
+    margin-right: 40px;
+}
+
+
