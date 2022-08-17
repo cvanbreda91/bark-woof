@@ -30,7 +30,7 @@ Made with ❤️ by Courtney
 - get items from localStorage
 
 ## Website Snapshot
-![website-image](https://github.com/cvanbreda91/rubber-boots/blob/main/assets/images/Website.gif)
+![website-image](https://github.com/cvanbreda91/bark-woof/blob/main/assets/images/Website.gif)
 
 ## Responsibilities
 - API research - entire team
