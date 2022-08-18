@@ -29,6 +29,9 @@ Made with ❤️ by Courtney, Gabriela, Cindy, Andy
 - save to localStorage
 - get items from localStorage
 
+## Wireframe
+![website-image](https://github.com/cvanbreda91/bark-woof/blob/main/assets/img/Project-1%20wireframe.png?raw=true)
+
 ## Website Snapshot
 ![website-image](https://github.com/cvanbreda91/bark-woof/blob/main/assets/img/Website.gif?raw=true)
 
