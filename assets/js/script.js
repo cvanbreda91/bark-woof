@@ -4,7 +4,7 @@ var dogTypeParse = "";
 var dogPicUrl = "";
 key = 0;
 
-
+//Create a function that calls data from hashtagy API
 var getHashtags = function () {
 
  
@@ -22,8 +22,10 @@ var getHashtags = function () {
     },
   };
   $.ajax(settings)
+  //create catch function incase there is a problem with the call
   .catch(function(error) {
-    
+ 
+// See notes in .done function for comments on the section below
     $("#topTen").remove();
 
     $("#hashtag-column").prepend ('<h3 id="topTen">Top 10 Hashtags</h3>');
@@ -46,7 +48,9 @@ var getHashtags = function () {
         '<div id ="hashtagColumns" class="columns is-gapless"><div class="column"> <div id="hashtagZero">No Hashtags To Display</div></div></div>'
       );
     
+//function if call was successful
       }).done(function (data) {
+//create local variables using the data from the api call
     var hashtagZero = data.data.hashtags[0].hashtag;
     var hashtagOne = data.data.hashtags[1].hashtag;
     var hashtagTwo = data.data.hashtags[2].hashtag;
@@ -58,13 +62,15 @@ var getHashtags = function () {
     var hashtagEight = data.data.hashtags[8].hashtag;
     var hashtagNine = data.data.hashtags[9].hashtag;
 
+/*remove and prepend the Top Ten heading for each dog search - otherwise it will have the heading 
+redisplayed for each dog search (could have put it directly in html instead and used a css update from hidden to unhidden)*/    
     $("#topTen").remove();
-
     $("#hashtag-column").prepend ('<h3 id="topTen">Top 10 Hashtags</h3>');
+//add background colour to column
     $("#hashtag-column").css("background-color","hsl(171, 100%, 41%)");
-
+//add background colour to chart - creates a small boarder around it
     $("#chartDiv").css("background-color","hsl(171, 50%, 41%)");
-
+//remove all the hashtag appends and re-add them for each dog search - extraOne and extra Two are for spacing
     $("#hashtagZero").remove();
     $("#hashtagOne").remove();
     $("#hashtagTwo").remove();
@@ -78,7 +84,7 @@ var getHashtags = function () {
     $("#extraOne").remove();
     $("#extraTwo").remove();
     $("#hashtagColumns").remove();
-
+//using nested columns so the hashtag text can take advantage of the flexbox capabilities built into Bulma - better for mobile and smaller devices
     $("#hashtagText").append(
         '<div id ="hashtagColumns" class="columns is-variable is-1"><div class="column"> <div id="hashtagZero">#' +
           hashtagZero +
@@ -102,7 +108,7 @@ var getHashtags = function () {
           hashtagNine +
           '</div><div id=extraTwo></div></div></div>'
       );
-
+//create chart based on additional hashtag data as part of our original api call
     var chart = JSC.chart("chartDiv", {
       debug: true,
       title: { position: "center", label_text: "Top 5 Hashtag Stats"},
@@ -179,7 +185,8 @@ var getDogs = function () {
       "x-api-key": "21d2859c-1fef-4be4-9b60-202f7c47dd39",
     },
   };
-  
+
+//if first call is successful, then the following local variables are defined with that data
   $.ajax(settings).done(function (data) {
     var bredFor = data[0].bred_for;
     var breedGroup = data[0].breed_group;
@@ -189,7 +196,7 @@ var getDogs = function () {
     var temperment = data[0].temperament;
     var imageId = data[0].reference_image_id;
 
-    //Second call is to use the unique pic ID to get the dog pic
+//Second call is to use the unique pic ID to get the dog pic
     var settings = {
       async: true,
       crossDomain: true,
@@ -200,9 +207,9 @@ var getDogs = function () {
       },
     };
 
-    
+//if second call is successful
     $.ajax(settings).done(function (data) {
-   
+//add css styling to column and remove any prior data from previous dog searches   
       $("#facts-column").css("background-color","rgb(123, 201, 220)");
       $("#sorryImg").remove();
       $("#dogPic").remove();
@@ -212,6 +219,7 @@ var getDogs = function () {
       $("#avgWeight").remove();
       $("#avgHeight").remove();
       $("#dogTemperment").remove();
+//create dog picture with alt text
       dogPicUrl = data.url;
       $("#facts-column").append(
         '<img src="' +
@@ -220,6 +228,7 @@ var getDogs = function () {
           dogTypeParse +
           ' image"/>'
       );
+//append all the facts
       $("#facts-column").append(
         '<p id="dogBredFor"><strong>What was my baby bred for:</strong> ' +
           bredFor+'</p>'
@@ -246,7 +255,7 @@ var getDogs = function () {
         '<p id="dogTemperment"><strong>How would others decribe my baby:</strong> ' +
           temperment+'</p>'
       );
-    
+//create catch function incase of dog image call error - local image will display with facts   
   }).catch(function(error) {
     $("#facts-column").css("background-color","rgb(123, 201, 220)")
     $("#sorryImg").remove();
@@ -286,6 +295,8 @@ var getDogs = function () {
         temperment+'</p>'
     );
   });
+
+  // create catch function for if first call for dog facts and imgage ID fails
   }).catch(function(error) {
     $("#sorryImg").remove();
     $("#dogPic").remove();
@@ -303,16 +314,20 @@ var getDogs = function () {
   });
 };
 
+/*create search button - make it so they can search in any case combonation and same result appears
+the hashtagy API is case sensitive and will not work otherwise*/
 $("#search-button").click(function (event) {
   dogType = $("#dog-type").val();
   dogTypeParse = dogType.replace(/\b[a-z]/g, function (dogType) {
     return dogType.toUpperCase();
   });
+//create local storage unique key to call for the information later
   key = key + 1;
   localStorage.setItem("dog" + key, JSON.stringify(dogTypeParse));
+//run the functions based on the click event
   getHashtags();
   getDogs();
-
+//create buttons for future searches of previously seached dog breed
   $("#buttons").append(
     '<button class = "button is-primary is-large"id="button' +
       key +
@@ -320,13 +335,15 @@ $("#search-button").click(function (event) {
       dogTypeParse +
       "</button>"
   );
- 
+  
+//make clipboard button visable and add some styling
   $("#copyToClipboard").css("visibility","visible");
   $("#hashtagText").css("margin-bottom","0px");
   $("#copyToClipboard").css("margin-bottom","25px");
   $("#copyToClipboard").css("margin-top","0px");
 });
 
+//create event function for copy to clipboard so user can copy all hashtags to clipboard
 $("#copyToClipboard").click(function (event) {
   let textToCopy = document.getElementById("hashtagText").innerText;
   if (navigator.clipboard) {
@@ -336,6 +353,7 @@ $("#copyToClipboard").click(function (event) {
   }
 });
 
+//create event functions for the buttons of previously searched dogs using data stored in local storage
 $(document).on("click", "#button1", function () {
   dogType = JSON.parse(localStorage.getItem("dog1"));
   dogTypeParse = JSON.parse(localStorage.getItem("dog1"));
